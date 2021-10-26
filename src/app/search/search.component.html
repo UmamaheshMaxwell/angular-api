@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Welcome to Search</h1><br>
+    <input  type="text"
+            class="form-control"
+            placeholder="Search report here" 
+            style="width:480px;max-width:480px;display:inline-block"
+            [(ngModel)]="search"
+            (input)="searchData()"
+    /> 
+
+    <!-- <button type="submit" 
+            class="btn btn-primary" 
+            style="margin-left:8px;margin-top:-5px;min-height:36px;"
+            (click)="searchData()"
+    >GO
+    </button> -->
+    <br><br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Group Id</th>
+                <th>Group Name</th>
+                <th>Dataset Id</th>
+                <th>Dataset Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let report of flattenedGroup">
+                <td>{{report.groupId}}</td>
+                <td>{{report.groupName}}</td>
+                <td>{{report.datasetId}}</td>
+                <td>{{report.datasetName}}</td>
+                <td>
+                    <button class="btn btn-primary">Refresh</button> &nbsp;&nbsp;
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
